@@ -1,0 +1,149 @@
+/* ==========================================================================
+   Header and navigation.
+   Mobile first: the links are stacked behind a disclosure button, and the row
+   layout takes over at 768px.
+   ========================================================================== */
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background-color: var(--color-white);
+  box-shadow: 0 1px 8px rgba(51, 51, 51, 0.1);
+}
+
+.header__inner {
+  position: relative; /* anchor for the mobile dropdown panel */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding-block: var(--space-3);
+}
+
+.header__logo-link {
+  display: inline-flex;
+  flex-shrink: 0;
+}
+
+.logo {
+  width: 150px;
+  height: auto;
+}
+
+/* --------------------------------------------------------------------------
+   Nav
+   -------------------------------------------------------------------------- */
+
+.nav__toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-green);
+  background: none;
+  border: 2px solid var(--color-green);
+  border-radius: var(--radius-sm);
+  padding: var(--space-2) var(--space-3);
+  cursor: pointer;
+}
+
+.nav__toggle-bars,
+.nav__toggle-bars::before,
+.nav__toggle-bars::after {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background-color: currentColor;
+  content: '';
+}
+
+.nav__toggle-bars {
+  position: relative;
+}
+
+.nav__toggle-bars::before {
+  position: absolute;
+  top: -6px;
+}
+
+.nav__toggle-bars::after {
+  position: absolute;
+  top: 6px;
+}
+
+.nav__list {
+  display: none;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Mobile: the open menu is a panel dropped below the header bar rather than an
+   element in the flow, so it spans the full width and does not push the logo. */
+.nav__list--open {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 60;
+  background-color: var(--color-white);
+  padding: var(--space-4);
+  border-top: 2px solid var(--color-light);
+  border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+  box-shadow: 0 10px 20px rgba(51, 51, 51, 0.14);
+}
+
+.nav__link {
+  display: block;
+  font-weight: 500;
+  color: var(--color-dark);
+  text-decoration: none;
+  padding: var(--space-2) 0;
+}
+
+.nav__link:hover {
+  color: var(--color-green);
+  text-decoration: underline;
+}
+
+/* The current page is marked visually and, in Nav.jsx, with aria-current. */
+.nav__link--active {
+  color: var(--color-green);
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-color: var(--color-yellow);
+  text-decoration-thickness: 3px;
+}
+
+.nav__cta {
+  padding: var(--space-2) var(--space-4);
+}
+
+@media (min-width: 768px) {
+  .nav__toggle {
+    display: none;
+  }
+
+  .nav__list,
+  .nav__list--open {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: var(--space-6);
+    position: static;
+    padding: 0;
+    border: 0;
+    box-shadow: none;
+    background: none;
+  }
+
+  .nav__link {
+    padding: var(--space-1) 0;
+  }
+}

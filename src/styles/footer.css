@@ -1,0 +1,79 @@
+/* ==========================================================================
+   Footer.
+   ========================================================================== */
+
+.footer {
+  background-color: var(--color-green);
+  color: var(--color-light);
+  padding-block: var(--space-12) var(--space-6);
+}
+
+.footer__inner {
+  display: grid;
+  gap: var(--space-8);
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 600px) {
+  .footer__inner {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 960px) {
+  .footer__inner {
+    grid-template-columns: 1.4fr repeat(3, 1fr);
+  }
+}
+
+.logo--footer {
+  width: 160px;
+}
+
+.footer__tagline {
+  margin-top: var(--space-4);
+  max-width: 32ch;
+}
+
+.footer__heading {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-yellow);
+  margin-bottom: var(--space-3);
+}
+
+.footer__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-style: normal; /* <address> italicises by default */
+}
+
+.footer__list li,
+.footer__list p {
+  margin-bottom: var(--space-2);
+}
+
+.footer__list a {
+  color: var(--color-light);
+  text-decoration: none;
+}
+
+.footer__list a:hover {
+  color: var(--color-yellow);
+  text-decoration: underline;
+}
+
+.footer__bottom {
+  margin-top: var(--space-8);
+  padding-top: var(--space-4);
+  border-top: 1px solid rgba(237, 239, 238, 0.25);
+  font-size: 0.9375rem;
+}
+
+.footer__bottom p {
+  margin: 0;
+}

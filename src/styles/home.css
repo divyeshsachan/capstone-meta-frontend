@@ -1,0 +1,279 @@
+/* ==========================================================================
+   Home page sections: hero, specials, testimonials, about.
+   Every multi-column layout starts as a single column and only splits at wider
+   viewports, so the page works on a phone without horizontal scrolling.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Hero
+   -------------------------------------------------------------------------- */
+
+.hero {
+  background-color: var(--color-green);
+  color: var(--color-light);
+  padding-block: var(--space-12);
+}
+
+.hero__inner {
+  display: grid;
+  gap: var(--space-8);
+  align-items: center;
+}
+
+.hero__title {
+  color: var(--color-yellow);
+  margin-bottom: 0;
+}
+
+.hero__subtitle {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  margin: 0 0 var(--space-4);
+}
+
+.hero__text {
+  max-width: 40ch;
+  font-size: 1.0625rem;
+}
+
+.hero__media {
+  justify-self: center;
+  width: 100%;
+  max-width: 420px;
+}
+
+.hero__art {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+}
+
+@media (min-width: 900px) {
+  .hero__inner {
+    grid-template-columns: 1.1fr 0.9fr;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Specials
+   -------------------------------------------------------------------------- */
+
+.specials {
+  padding-block: var(--space-16);
+}
+
+.specials__header {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-8);
+}
+
+.specials__grid {
+  display: grid;
+  gap: var(--space-6);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 640px) {
+  .specials__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 960px) {
+  .specials__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.special-card {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-light);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+}
+
+.special-card__media {
+  aspect-ratio: 4 / 3;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.dish-art {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.special-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-6);
+  flex: 1;
+}
+
+.special-card__header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+.special-card__name {
+  margin: 0;
+}
+
+.special-card__price {
+  margin: 0;
+  color: #a8452c; /* darkened salmon: 4.6:1 on --color-light */
+  font-weight: 500;
+}
+
+.special-card__description {
+  margin: 0;
+  flex: 1;
+}
+
+.special-card__link {
+  font-weight: 700;
+  text-decoration: none;
+  color: var(--color-dark);
+}
+
+.special-card__link:hover {
+  color: var(--color-green);
+  text-decoration: underline;
+}
+
+/* --------------------------------------------------------------------------
+   Testimonials
+   -------------------------------------------------------------------------- */
+
+.testimonials {
+  background-color: var(--color-light);
+  padding-block: var(--space-16);
+}
+
+.testimonials__heading {
+  text-align: center;
+  margin-bottom: var(--space-8);
+}
+
+.testimonials__grid {
+  display: grid;
+  gap: var(--space-6);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 640px) {
+  .testimonials__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1000px) {
+  .testimonials__grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.testimonial {
+  background-color: var(--color-white);
+  border-radius: var(--radius-md);
+  padding: var(--space-6);
+  box-shadow: var(--shadow-card);
+}
+
+.testimonial__rating {
+  margin: 0 0 var(--space-3);
+  color: #8a6d00; /* dark gold: passes contrast on white */
+  font-size: 1.125rem;
+  letter-spacing: 2px;
+}
+
+.testimonial__figure {
+  margin: 0;
+}
+
+.testimonial__person {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-3);
+}
+
+.testimonial__avatar {
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+}
+
+.testimonial__name {
+  font-weight: 700;
+}
+
+.testimonial__quote {
+  margin: 0;
+}
+
+.testimonial__quote p {
+  margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   About
+   -------------------------------------------------------------------------- */
+
+.about {
+  padding-block: var(--space-16);
+}
+
+.about__inner {
+  display: grid;
+  gap: var(--space-8);
+  align-items: center;
+}
+
+.about__title {
+  color: var(--color-green);
+  margin-bottom: 0;
+}
+
+.about__subtitle {
+  font-family: var(--font-display);
+  font-size: clamp(1.375rem, 3vw, 2rem);
+  margin: 0 0 var(--space-4);
+}
+
+.about__media {
+  justify-self: center;
+  width: 100%;
+  max-width: 460px;
+}
+
+.about__art {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+}
+
+@media (min-width: 900px) {
+  .about__inner {
+    grid-template-columns: 1fr 1fr;
+  }
+}

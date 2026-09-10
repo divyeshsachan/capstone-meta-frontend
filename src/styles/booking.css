@@ -1,0 +1,329 @@
+/* ==========================================================================
+   Booking page, form and confirmation.
+   ========================================================================== */
+
+.booking-page {
+  background-color: var(--color-light);
+  padding-block: var(--space-12);
+}
+
+.booking-page__header {
+  max-width: 60ch;
+  margin-bottom: var(--space-8);
+}
+
+.booking-page__header h1 {
+  color: var(--color-green);
+}
+
+.booking-page__intro {
+  font-size: 1.0625rem;
+}
+
+.booking-page__layout {
+  display: grid;
+  gap: var(--space-8);
+  align-items: start;
+}
+
+@media (min-width: 900px) {
+  .booking-page__layout {
+    grid-template-columns: 1.6fr 1fr;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Form
+   -------------------------------------------------------------------------- */
+
+.booking-form {
+  background-color: var(--color-white);
+  border-radius: var(--radius-md);
+  padding: var(--space-6);
+  box-shadow: var(--shadow-card);
+}
+
+.booking-form__fieldset {
+  border: 0;
+  padding: 0;
+  margin: 0 0 var(--space-8);
+}
+
+.booking-form__legend {
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-green);
+  padding: 0;
+  margin-bottom: var(--space-4);
+}
+
+/* Error summary shown after a failed submit. */
+.booking-form__summary {
+  border: 2px solid var(--color-error);
+  background-color: var(--color-error-bg);
+  border-radius: var(--radius-sm);
+  padding: var(--space-4);
+  margin-bottom: var(--space-6);
+}
+
+.booking-form__summary:focus {
+  outline: 3px solid var(--color-error);
+  outline-offset: 2px;
+}
+
+.booking-form__summary-title {
+  font-weight: 700;
+  color: var(--color-error);
+  margin-bottom: var(--space-2);
+}
+
+.booking-form__summary ul {
+  margin: 0;
+  padding-left: var(--space-6);
+}
+
+.booking-form__summary a {
+  color: var(--color-error);
+}
+
+/* Fields ------------------------------------------------------------------ */
+
+.field {
+  margin-bottom: var(--space-6);
+}
+
+.field--radio {
+  border: 0;
+  padding: 0;
+  margin: 0 0 var(--space-6);
+}
+
+.field__label {
+  display: block;
+  font-weight: 700;
+  margin-bottom: var(--space-2);
+  padding: 0;
+}
+
+.field__optional {
+  font-weight: 400;
+  color: #5f5f5f;
+}
+
+.field__input {
+  display: block;
+  width: 100%;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--color-dark);
+  background-color: var(--color-white);
+  padding: var(--space-3);
+  border: 2px solid #b9beba;
+  border-radius: var(--radius-sm);
+  min-height: 48px; /* comfortable touch target */
+}
+
+.field__input:hover {
+  border-color: var(--color-green);
+}
+
+.field__input--textarea {
+  min-height: 96px;
+  resize: vertical;
+}
+
+/* Invalid fields get a red border as well as the text message, never colour alone. */
+.field__input[aria-invalid='true'] {
+  border-color: var(--color-error);
+  background-color: var(--color-error-bg);
+}
+
+.field__error {
+  display: flex;
+  gap: var(--space-1);
+  margin: var(--space-2) 0 0;
+  color: var(--color-error);
+  font-weight: 500;
+  font-size: 0.9375rem;
+}
+
+.field__hint {
+  margin: var(--space-2) 0 0;
+  font-size: 0.9375rem;
+  color: #5f5f5f;
+}
+
+.field__radios {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+}
+
+.radio {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-4);
+  border: 2px solid #b9beba;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  min-height: 48px;
+}
+
+.radio:hover {
+  border-color: var(--color-green);
+}
+
+.radio input {
+  width: 20px;
+  height: 20px;
+  accent-color: var(--color-green);
+}
+
+.radio:has(input:checked) {
+  border-color: var(--color-green);
+  background-color: rgba(73, 94, 87, 0.08);
+  font-weight: 700;
+}
+
+.booking-form__submit {
+  width: 100%;
+  font-size: 1.0625rem;
+}
+
+/* Not-yet-complete state: muted, but still clickable so pressing it explains why. */
+.booking-form__submit--incomplete {
+  background-color: #f6e08a;
+}
+
+.booking-form__note {
+  margin: var(--space-4) 0 0;
+  font-size: 0.9375rem;
+  color: #5f5f5f;
+}
+
+/* Aside ------------------------------------------------------------------- */
+
+.booking-page__aside {
+  background-color: var(--color-green);
+  color: var(--color-light);
+  border-radius: var(--radius-md);
+  padding: var(--space-6);
+}
+
+.booking-page__aside h2 {
+  color: var(--color-yellow);
+  font-size: 1.5rem;
+}
+
+.hours {
+  margin: 0 0 var(--space-6);
+}
+
+.hours__row {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding-block: var(--space-2);
+  border-bottom: 1px solid rgba(237, 239, 238, 0.25);
+}
+
+.hours dt {
+  font-weight: 700;
+}
+
+.hours dd {
+  margin: 0;
+}
+
+.booking-page__notes {
+  margin: 0;
+  padding-left: var(--space-6);
+}
+
+.booking-page__notes li {
+  margin-bottom: var(--space-2);
+}
+
+/* --------------------------------------------------------------------------
+   Confirmation
+   -------------------------------------------------------------------------- */
+
+.confirmation {
+  padding-block: var(--space-16);
+  max-width: 680px;
+}
+
+.confirmation__card {
+  background-color: var(--color-light);
+  border-radius: var(--radius-lg);
+  padding: var(--space-8);
+  text-align: center;
+  box-shadow: var(--shadow-card);
+}
+
+.confirmation__badge {
+  display: grid;
+  place-items: center;
+  width: 64px;
+  height: 64px;
+  margin: 0 auto var(--space-4);
+  border-radius: 50%;
+  background-color: var(--color-success);
+  color: var(--color-white);
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.confirmation__card h1 {
+  color: var(--color-green);
+}
+
+.confirmation__lead {
+  font-size: 1.0625rem;
+}
+
+.confirmation__details {
+  margin: var(--space-8) 0;
+  text-align: left;
+  background-color: var(--color-white);
+  border-radius: var(--radius-md);
+  padding: var(--space-4) var(--space-6);
+}
+
+.confirmation__row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding-block: var(--space-3);
+  border-bottom: 1px solid #dfe3e0;
+}
+
+.confirmation__row:last-child {
+  border-bottom: 0;
+}
+
+.confirmation__row dt {
+  font-weight: 700;
+}
+
+.confirmation__row dd {
+  margin: 0;
+  text-align: right;
+}
+
+.confirmation__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  justify-content: center;
+}
+
+.confirmation__small {
+  margin: var(--space-4) 0 0;
+  font-size: 0.9375rem;
+}
